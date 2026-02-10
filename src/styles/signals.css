@@ -1,0 +1,226 @@
+/* ===== Signals Simulation CSS ===== */
+@import '../styles/variables.css';
+
+.signals-view {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+    height: 100%;
+}
+
+.signals-top {
+    display: flex;
+    gap: var(--sp-3);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.signals-mode-badge {
+    padding: var(--sp-1) var(--sp-4);
+    border-radius: var(--radius-full);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.signals-main {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: var(--sp-4);
+    flex: 1;
+    min-height: 0;
+}
+
+/* Canvas */
+.signals-canvas-wrap {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    min-height: 400px;
+}
+
+.signals-canvas-wrap canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.canvas-overlay-label {
+    position: absolute;
+    top: var(--sp-3);
+    left: var(--sp-3);
+    display: flex;
+    gap: var(--sp-2);
+}
+
+/* Right Panel */
+.signals-right {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    overflow-y: auto;
+}
+
+/* Junction Card */
+.junction-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-3) var(--sp-4);
+}
+
+.junction-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--sp-2);
+}
+
+.junction-name {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--text-heading);
+}
+
+.junction-signals {
+    display: flex;
+    gap: var(--sp-2);
+    margin-bottom: var(--sp-2);
+}
+
+.mini-signal {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-1);
+    font-size: var(--fs-xs);
+    color: var(--text-secondary);
+}
+
+.mini-light {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.mini-light.green {
+    background: var(--signal-green);
+    box-shadow: 0 0 4px var(--signal-green);
+}
+
+.mini-light.amber {
+    background: var(--signal-amber);
+    box-shadow: 0 0 4px var(--signal-amber);
+}
+
+.mini-light.red {
+    background: var(--signal-red);
+    box-shadow: 0 0 4px var(--signal-red);
+}
+
+.mini-light.off {
+    background: var(--bg-surface);
+}
+
+/* Congestion Meter */
+.congestion-meter {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    margin-top: var(--sp-1);
+}
+
+.congestion-bar {
+    flex: 1;
+    height: 6px;
+    background: var(--bg-surface);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.congestion-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width var(--transition-base);
+}
+
+.congestion-fill.low {
+    background: var(--signal-green);
+}
+
+.congestion-fill.medium {
+    background: var(--signal-amber);
+}
+
+.congestion-fill.high {
+    background: var(--signal-red);
+}
+
+/* AI Logic Box */
+.ai-logic-box {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-md);
+    padding: var(--sp-3);
+    font-size: var(--fs-xs);
+}
+
+.ai-logic-box .logic-title {
+    color: var(--accent-blue);
+    font-weight: var(--fw-semibold);
+    margin-bottom: var(--sp-1);
+    display: flex;
+    align-items: center;
+    gap: var(--sp-1);
+}
+
+.ai-logic-box .logic-row {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-secondary);
+    padding: 2px 0;
+}
+
+.ai-logic-box .logic-val {
+    color: var(--text-heading);
+    font-family: var(--font-mono);
+}
+
+/* Comparison */
+.comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-3);
+}
+
+.comparison-card {
+    background: var(--bg-surface);
+    border-radius: var(--radius-md);
+    padding: var(--sp-3);
+    text-align: center;
+}
+
+.comparison-card .comp-label {
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: var(--sp-1);
+}
+
+.comparison-card .comp-value {
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-bold);
+    font-family: var(--font-mono);
+}
+
+.comparison-card .comp-value.normal {
+    color: var(--signal-red);
+}
+
+.comparison-card .comp-value.emergency {
+    color: var(--signal-green);
+}

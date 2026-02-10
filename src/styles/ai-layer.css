@@ -1,0 +1,237 @@
+/* ===== AI Layer CSS ===== */
+@import '../styles/variables.css';
+
+.ai-layer-view {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* Data Flow Diagram */
+.data-flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 0;
+    align-items: stretch;
+}
+
+.flow-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+}
+
+.flow-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--accent-blue);
+    padding: 0 var(--sp-3);
+}
+
+.flow-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-4);
+}
+
+.flow-card.input {
+    border-left: 3px solid var(--accent-teal);
+}
+
+.flow-card.process {
+    border-left: 3px solid var(--accent-blue);
+}
+
+.flow-card.output {
+    border-left: 3px solid var(--signal-green);
+}
+
+.flow-card-icon {
+    font-size: 20px;
+    margin-bottom: var(--sp-2);
+}
+
+.flow-card-title {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--text-heading);
+    margin-bottom: var(--sp-1);
+}
+
+.flow-card-desc {
+    font-size: var(--fs-xs);
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.flow-card-data {
+    margin-top: var(--sp-2);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+}
+
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--fs-xs);
+    padding: 2px 0;
+}
+
+.data-row .label {
+    color: var(--text-muted);
+}
+
+.data-row .value {
+    color: var(--text-heading);
+    font-family: var(--font-mono);
+}
+
+/* Safety Rules */
+.safety-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-3);
+}
+
+.safety-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-4);
+}
+
+.safety-card.critical {
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.safety-icon {
+    font-size: 20px;
+    margin-bottom: var(--sp-2);
+}
+
+.safety-title {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--text-heading);
+    margin-bottom: var(--sp-1);
+}
+
+.safety-desc {
+    font-size: var(--fs-xs);
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.safety-value {
+    margin-top: var(--sp-2);
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-bold);
+    color: var(--signal-amber);
+    font-family: var(--font-mono);
+}
+
+/* Live Data Feed */
+.data-feed {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.feed-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--sp-3) var(--sp-4);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.feed-body {
+    height: 200px;
+    overflow-y: auto;
+    padding: var(--sp-2);
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+}
+
+.feed-line {
+    display: flex;
+    gap: var(--sp-3);
+    padding: 3px var(--sp-2);
+    border-radius: var(--radius-sm);
+}
+
+.feed-line:hover {
+    background: var(--bg-surface);
+}
+
+.feed-time {
+    color: var(--text-muted);
+    white-space: nowrap;
+    min-width: 70px;
+}
+
+.feed-type {
+    min-width: 60px;
+    font-weight: var(--fw-medium);
+}
+
+.feed-type.input {
+    color: var(--accent-teal);
+}
+
+.feed-type.process {
+    color: var(--accent-blue);
+}
+
+.feed-type.output {
+    color: var(--signal-green);
+}
+
+.feed-type.safety {
+    color: var(--signal-amber);
+}
+
+.feed-msg {
+    color: var(--text-secondary);
+}
+
+/* Model details */
+.model-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-3);
+}
+
+.model-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-4);
+}
+
+.model-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-1);
+    font-size: var(--fs-xs);
+    padding: 2px var(--sp-2);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--sp-2);
+}
+
+.model-badge.rl {
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--accent-indigo);
+}
+
+.model-badge.graph {
+    background: rgba(20, 184, 166, 0.15);
+    color: var(--accent-teal);
+}

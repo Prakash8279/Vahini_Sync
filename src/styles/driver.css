@@ -1,0 +1,295 @@
+/* ===== Driver Notification CSS ===== */
+@import '../styles/variables.css';
+
+.driver-view {
+    display: flex;
+    gap: var(--sp-6);
+    height: 100%;
+    align-items: flex-start;
+}
+
+/* Phone Mockup */
+.phone-frame {
+    width: 340px;
+    min-width: 340px;
+    background: #111827;
+    border-radius: 36px;
+    border: 3px solid #374151;
+    padding: 12px;
+    box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    flex-shrink: 0;
+    align-self: center;
+}
+
+.phone-notch {
+    width: 120px;
+    height: 6px;
+    background: #374151;
+    border-radius: 3px;
+    margin: 4px auto 8px;
+}
+
+.phone-screen {
+    background: var(--bg-primary);
+    border-radius: 24px;
+    overflow: hidden;
+    height: 560px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Phone status bar */
+.phone-status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+/* Nav simulation */
+.phone-nav {
+    flex: 1;
+    position: relative;
+    background: #0c1524;
+    overflow: hidden;
+}
+
+.phone-nav-map {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.nav-route-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12px;
+}
+
+.nav-eta-box {
+    background: var(--bg-overlay);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-3) var(--sp-4);
+    backdrop-filter: blur(8px);
+}
+
+.nav-eta-box .eta-time {
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-bold);
+    color: var(--text-heading);
+}
+
+.nav-eta-box .eta-dist {
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+}
+
+/* Alert overlay */
+.phone-alert {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    border-radius: var(--radius-lg);
+    padding: var(--sp-4);
+    backdrop-filter: blur(12px);
+    animation: slideUp 0.4s ease-out;
+    z-index: 10;
+}
+
+.phone-alert.warning {
+    bottom: 80px;
+    background: rgba(220, 38, 38, 0.15);
+    border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+.phone-alert.reroute {
+    bottom: 180px;
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.phone-alert.cleared {
+    bottom: 80px;
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.phone-alert .alert-icon {
+    font-size: 24px;
+    margin-bottom: var(--sp-1);
+}
+
+.phone-alert .alert-title {
+    font-size: var(--fs-base);
+    font-weight: var(--fw-semibold);
+    color: var(--text-heading);
+    margin-bottom: 4px;
+}
+
+.phone-alert .alert-text {
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.phone-alert .alert-action {
+    margin-top: var(--sp-2);
+    display: flex;
+    gap: var(--sp-2);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Phone bottom bar */
+.phone-bottom {
+    height: 64px;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    padding: 0 var(--sp-4);
+}
+
+.signal-countdown-visual {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    background: var(--bg-surface);
+    border-radius: var(--radius-full);
+    padding: var(--sp-1) var(--sp-3);
+}
+
+.signal-countdown-visual .countdown-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.signal-countdown-visual .countdown-text {
+    font-size: var(--fs-sm);
+    font-family: var(--font-mono);
+    font-weight: var(--fw-bold);
+}
+
+/* Right Panel — Flow Description */
+.driver-flow {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+}
+
+.flow-step {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-4) var(--sp-5);
+    display: flex;
+    gap: var(--sp-4);
+    transition: all var(--transition-base);
+}
+
+.flow-step.active {
+    border-color: var(--accent-blue);
+    box-shadow: var(--shadow-glow-blue);
+}
+
+.flow-step-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--bg-surface);
+    border: 2px solid var(--border-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-bold);
+    color: var(--text-heading);
+    flex-shrink: 0;
+}
+
+.flow-step.active .flow-step-number {
+    background: var(--accent-blue-dim);
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+}
+
+.flow-step-content h3 {
+    font-size: var(--fs-base);
+    font-weight: var(--fw-semibold);
+    color: var(--text-heading);
+    margin-bottom: 4px;
+}
+
+.flow-step-content p {
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.flow-step-content .flow-detail {
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    margin-top: var(--sp-2);
+    display: flex;
+    gap: var(--sp-3);
+}
+
+/* Lane guidance */
+.lane-guide {
+    display: flex;
+    gap: var(--sp-1);
+    margin-top: var(--sp-2);
+}
+
+.lane {
+    width: 24px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+
+.lane.clear {
+    background: var(--signal-green-dim);
+    border-color: var(--signal-green);
+    color: var(--signal-green);
+}
+
+.lane.occupied {
+    background: var(--bg-surface);
+    color: var(--text-muted);
+}
+
+.lane.ambulance {
+    background: var(--signal-red-dim);
+    border-color: var(--signal-red);
+    color: var(--signal-red);
+}

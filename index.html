@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vahini-Sync — AI-Powered Emergency Traffic Orchestration System for Smart Cities" />
+  <title>Vahini-Sync | Emergency Traffic Orchestration</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚦</text></svg>" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="/src/styles/global.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-logo">VS</div>
+      <div class="sidebar-divider"></div>
+
+      <button class="nav-btn active" data-view="ambulance" id="nav-ambulance">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <path d="M3 15h2l1-4h6l1 4h2"/>
+          <circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>
+          <path d="M14 7h3l3 5v5h-2M5 15V7h9"/>
+          <path d="M10 4v4M8 6h4"/>
+        </svg>
+        <span class="tooltip">Ambulance</span>
+      </button>
+
+      <button class="nav-btn" data-view="dashboard" id="nav-dashboard">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/>
+          <rect x="3" y="16" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/>
+        </svg>
+        <span class="tooltip">Dashboard</span>
+      </button>
+
+      <button class="nav-btn" data-view="signals" id="nav-signals">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <rect x="9" y="2" width="6" height="20" rx="2"/>
+          <circle cx="12" cy="7" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="17" r="1.5"/>
+        </svg>
+        <span class="tooltip">Signals</span>
+      </button>
+
+      <button class="nav-btn" data-view="driver" id="nav-driver">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <rect x="5" y="2" width="14" height="20" rx="3"/>
+          <line x1="12" y1="18" x2="12" y2="18.01"/>
+        </svg>
+        <span class="tooltip">Driver View</span>
+      </button>
+
+      <button class="nav-btn" data-view="ai-layer" id="nav-ai-layer">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/>
+          <path d="M16 14H8a4 4 0 0 0-4 4v2h16v-2a4 4 0 0 0-4-4z"/>
+          <circle cx="12" cy="6" r="1"/>
+        </svg>
+        <span class="tooltip">AI Layer</span>
+      </button>
+
+      <button class="nav-btn" data-view="pilot" id="nav-pilot">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <polygon points="5 3 19 12 5 21 5 3"/>
+        </svg>
+        <span class="tooltip">Pilot Demo</span>
+      </button>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Top Bar -->
+      <header class="top-bar">
+        <div class="top-bar-left">
+          <span class="top-bar-title" id="view-title">Ambulance Interface</span>
+          <span class="top-bar-subtitle" id="view-subtitle">PARAMEDIC CONSOLE</span>
+        </div>
+        <div class="top-bar-right">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="status-dot green" id="system-status-dot"></span>
+            <span style="font-size:var(--fs-xs);color:var(--text-secondary);" id="system-status-text">System Online</span>
+          </div>
+          <span style="font-size:var(--fs-xs);color:var(--text-muted);font-family:var(--font-mono);" id="clock"></span>
+        </div>
+      </header>
+
+      <!-- View Container -->
+      <div class="view-container" id="view-container">
+        <!-- Dynamic content injected here -->
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
